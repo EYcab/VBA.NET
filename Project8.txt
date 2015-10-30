@@ -1,0 +1,16 @@
+Dim query = From Grades In GradebookDataSet.Grades
+                    Order By Grades.studentID Ascending
+                    Select Grades.studentID, Grades.firstExam, Grades.secondExam, Grades.finalExam
+        'Where Grades.studentID = Students.studentID
+        TStxtBoxStudentID.Text = query.First.studentID
+        TStxtBoxFirstExam.Text = (query.First.firstExam).ToString("N")
+
+Where Grades.firstExam >= 0 And Not IsDBNull(Grades.firstExam) And Grades.secondExam >= 0 And Not IsDBNull(Grades.secondExam) And Grades.finalExam >= 0 And Not IsDBNull(Grades.finalExam)
+
+ Dim query1 = From Grades In TSGradebookDataSet.Grades
+                    Order By Grades.studentID Ascending
+                    Select Grades.firstExam, Grades.secondExam, Grades.finalExam
+        Dim TSGrade1, TSGrade2, TSGrade3 As Double
+        TSGrade1 = query1.First.firstExam
+        TSGrade2 = query1.First.secondExam
+        TSGrade3 = query1.First.finalExam

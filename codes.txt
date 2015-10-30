@@ -1,0 +1,63 @@
+Public Class S86YEarnestProj6
+
+    Private Sub S86btnSL_Click(sender As Object, e As EventArgs) Handles S86btnSL.Click
+        Dim S86life, S86time As Integer
+        Dim S86Bal, S86Depre As Double
+        S86input(S86life, S86time, S86Depre, S86Bal)
+        S86lBox.Items.Add("Method: straight-line")
+        S86Straightline(S86life, S86time, S86Depre, S86Bal)
+    End Sub
+    Sub S86input(ByRef S86life As Integer, ByRef S86time As Integer, ByRef S86Depre As Double, ByRef S86Bal As Double)
+        S86lBox.Items.Clear()
+        S86lBox.Items.Add("Description: " & S86txtItem.Text)
+        S86lBox.Items.Add("Years of Purchase: " & S86txtPurchase.Text)
+        S86lBox.Items.Add("Cost: " & S86txtCost.Text)
+        S86lBox.Items.Add("Estimated life: " & S86txtlife.Text)
+        S86life = CInt(S86txtlife.Text)
+        S86Bal = CDbl(S86txtCost.Text)
+        S86Depre = S86Bal / S86life
+        S86time = CInt(S86txtPurchase.Text)
+    End Sub
+    Sub S86Straightline(ByRef S86life As Integer, ByRef S86time As Integer, ByRef S86Depre As Double, ByRef S86Bal As Double)
+        Dim S86AccumDepre As Double
+        Do Until (S86life = 0)
+            S86lBox.Items.Add(" ")
+            S86AccumDepre += S86Depre
+            S86lBox.Items.Add("Value at the beginning of  " & S86time.ToString("D") & ":  " & S86Bal.ToString("C2"))
+            S86lBox.Items.Add("Amount of depreciation during  " & S86time.ToString("D") & ":  " & S86Depre.ToString("C2"))
+            S86lBox.Items.Add("Total depreciation at end of  " & S86time.ToString("D") & ":  " & S86AccumDepre.ToString("C2"))
+            S86life = S86life - 1
+            S86time += 1
+            S86Bal -= S86Depre
+        Loop
+    End Sub
+
+    Private Sub S86btnDDB_Click(sender As Object, e As EventArgs) Handles S86btnDDB.Click
+        Dim S86life, S86time As Integer
+        Dim S86Bal, S86Depre As Double
+        S86input(S86life, S86time, S86Depre, S86Bal)
+        S86lBox.Items.Add("Method: double-declining-balance")
+        S86DoubleDeclineBal(S86life, S86time, S86Depre, S86Bal)
+    End Sub
+    Sub S86DoubleDeclineBal(ByRef S86life As Integer, ByRef S86time As Integer, ByRef S86Depre As Double, ByRef S86Bal As Double)
+        Dim S86AccumDepre As Double
+        S86Depre = 2 * S86Depre
+        Do Until (S86Bal = 0)
+            S86lBox.Items.Add(" ")
+            If S86Bal < S86Depre Then
+                S86Depre = S86Bal
+                S86AccumDepre += S86Depre
+                S86lBox.Items.Add("Value at the beginning of  " & S86time.ToString("D") & ":  " & S86Bal.ToString("C2"))
+                S86lBox.Items.Add("Amount of depreciation during  " & S86time.ToString("D") & ":  " & S86Depre.ToString("C2"))
+                S86lBox.Items.Add("Total depreciation at end of  " & S86time.ToString("D") & ":  " & S86AccumDepre.ToString("C2"))
+            Else
+                S86AccumDepre += S86Depre
+                S86lBox.Items.Add("Value at the beginning of  " & S86time.ToString("D") & ":  " & S86Bal.ToString("C2"))
+                S86lBox.Items.Add("Amount of depreciation during  " & S86time.ToString("D") & ":  " & S86Depre.ToString("C2"))
+                S86lBox.Items.Add("Total depreciation at end of  " & S86time.ToString("D") & ":  " & S86AccumDepre.ToString("C2"))
+            End If
+            S86time += 1
+            S86Bal -= S86Depre
+        Loop
+    End Sub
+End Class

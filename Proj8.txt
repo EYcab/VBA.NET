@@ -1,0 +1,102 @@
+Public Class S82frmPhoneDirectories
+
+    Dim S82currentDirectory As String = ""
+
+    Private Sub S82frmPhoneDirectories_Load(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles MyBase.Load
+        Try
+            Dim S82directory() As String = IO.File.ReadAllLines("Directories.txt")
+            For Each S82file In S82directory
+                S82lstDirectories.Items.Add(S82file)
+
+            Next
+        Catch S82exc As IO.FileLoadException
+
+        End Try
+    End Sub
+
+    Private Sub S82lstDirectories_SelectedIndexChanged(ByVal sender As Object, ByVal e As EventArgs) Handles S82lstDirectories.SelectedIndexChanged
+        S82currentDirectory = S82lstDirectories.Text
+        S82txtCurrent.Text = S82currentDirectory
+
+    End Sub
+
+    Private Sub S82btnCreate_Click(ByVal sender As Object, ByVal e As EventArgs) Handles S82btnCreate.Click
+        Dim S82directoriesName As String = InputBox("Enter Directory Name:", "Create New Directory")
+        If Not S82directoriesName = "" Then
+            Dim S82swDirName As IO.StreamWriter = IO.File.CreateText(S82directoriesName)
+            S82swDirName.Close()
+            Dim S82swDir As IO.StreamWriter = IO.File.AppendText("Directories.txt")
+            S82swDir.WriteLine(S82directoriesName)
+            S82swDir.Close()
+            MessageBox.Show("New directory has been added successully.")
+            S82lstDirectories.Items.Add(S82directoriesName)
+
+        End If
+    End Sub
+
+    Private Sub S82btnAdd_Click(ByVal sender As Object, ByVal e As EventArgs) Handles S82btnAdd.Click
+        Dim S82name As String = S82txtName.Text
+        Dim S82phoneNumber As String = S82txtNumber.Text
+        If S82currentDirectory = "" Then
+            MessageBox.Show("Select a directory you wish to add", "Error")
+        ElseIf S82name = "" Then
+            MessageBox.Show("Please enter a valid name", "Error")
+        ElseIf S82phoneNumber = "" Then
+            MessageBox.Show("Please enter a valid phone number", "Error")
+        Else
+            Dim S82sw As IO.StreamWriter = IO.File.AppendText(S82currentDirectory)
+            S82sw.WriteLine(S82name & "," & S82phoneNumber)
+            MessageBox.Show("New list is added to the directory successfully")
+            S82txtName.Clear()
+            S82txtNumber.Clear()
+
+
+        End If
+
+    End Sub
+
+    Private Sub S82btnRemove_Click(ByVal sender As Object, ByVal e As EventArgs) Handles S82btnRemove.Click
+        Dim S82name As String = S82txtName.Text
+        If S82currentDirectory = "" Then
+            MessageBox.Show("Please select a directory", "Error")
+        ElseIf S82name = "" Then
+            MessageBox.Show("Please type the name of the record that you would want to delete in the textbox", "Error")
+        Else
+            Dim S82sr As IO.StreamReader = IO.File.OpenText(S82currentDirectory)
+            Dim S82sw As IO.StreamWriter = IO.File.CreateText("temporary.txt")
+            Dim S82line As String
+            Do Until S82sr.EndOfStream
+                S82line = S82sr.ReadLine()
+                If Not S82name = S82line.Split(","c)(0) Then
+                    S82sw.WriteLine(S82line)
+
+                End If
+            Loop
+            S82sr.Close()
+            S82sw.Close()
+            System.IO.File.Delete(S82currentDirectory)
+            System.IO.File.Move("temporary.txt", S82currentDirectory)
+            MessageBox.Show("Name is successfully removed from directory")
+            S82txtName.Clear()
+            S82txtNumber.Clear()
+        End If
+    End Sub
+
+    Private Sub S82btnDisplay_Click(ByVal sender As Object, ByVal e As EventArgs) Handles S82btnDisplay.Click
+        If Not S82currentDirectory = "" Then
+            Dim S82lines() As String = System.IO.File.ReadAllLines(S82currentDirectory)
+            Dim S82data = From S82line In S82lines
+                          Let S82name = S82line.Split(","c)(0)
+                          Let S82number = S82line.Split(","c)(1)
+                          Order By S82name Ascending
+                          Select S82name, S82number
+            S82dgvDisplay.DataSource = S82data.ToList
+            S82dgvDisplay.CurrentCell = Nothing
+            S82dgvDisplay.Columns("s82name").HeaderText = "Name"
+            S82dgvDisplay.Columns("S82number").HeaderText = "Phone Number"
+
+        Else
+            MessageBox.Show("Please select a directory", "Error")
+        End If
+    End Sub
+End Class

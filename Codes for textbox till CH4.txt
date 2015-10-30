@@ -1,0 +1,60 @@
+ Private Sub S86btn_Click(sender As Object, e As EventArgs) Handles S86btn.Click
+        Const TAX_RATE As Double = 0.05
+        Dim Name As String, LaborCost, PartsCost, Total As Double
+        Name = S86txtbx1.Text
+        S86lstBx.Items.Clear()
+        LaborCost = CDbl(S86txtBx2.Text) * 35.0
+        PartsCost = CDbl(S86txtBx3.Text) * (1 + TAX_RATE)
+        Total = LaborCost + PartsCost
+        S86lstBx.Items.Add("Customer:     " & Name)
+        S86lstBx.Items.Add("Labor cost:   " & (LaborCost).ToString("C2"))
+        S86lstBx.Items.Add("Parts cost:   " & (PartsCost).ToString("C2"))
+        S86lstBx.Items.Add("Total cost:   " & (Total).ToString("C2"))
+    End Sub
+
+
+ApartmentGroup.Visible = False
+        OfficeGroup.Visible = False
+
+
+
+  S86lBox2.Items.Clear()
+        Const S86p1 As Double = 24   'p is short for the price of 3 options in order
+        Const S86p2 As Double = 18
+        Const S86p3 As Double = 30
+        Dim S86str As String = "", S86p As Double = 0.0
+        Dim S86type As String = ""
+        Dim S86total As Double = 0.0
+        Dim S86ID As Integer = 0
+        Select Case CInt(S86txtItem.Text)
+            Case 1
+                S86str = "Rug Cleaner"
+                S86p = S86p1
+            Case 2
+                S86str = "Lawn mower"
+                S86p = S86p2
+            Case 3
+                S86str = "Paint sprayer"
+                S86p = S86p3
+        End Select
+        Select Case S86txtDuration.Text
+            Case "H"
+                S86p = 2 * S86p / 3
+                S86type = "Half"
+                S86ID = 1
+            Case "F"
+                S86type = "Full"
+                S86ID = 1
+        End Select
+        If S86ID = 0 Or (S86p = 0.0) Then
+            S86lBox2.Items.Add("There is an error")
+        Else
+            S86lBox2.Items.Add("Receipt from Eddie's Equipment Rental")
+            S86lBox2.Items.Add("                                 ")
+            S86lBox2.Items.Add(S86str & ": " & (S86p).ToString("C") & "  (" & S86type & " day rental)")
+            S86lBox2.Items.Add("Deposit: $30")
+
+            S86total = S86p + 30
+            S86lBox2.Items.Add("Total:  " & (S86total).ToString("C"))
+
+        End If

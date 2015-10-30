@@ -1,0 +1,20 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "EventDriven", "EventDriven\EventDriven.vbproj", "{E3E21F6E-72A4-4E64-91CA-E22FC319B7FC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E3E21F6E-72A4-4E64-91CA-E22FC319B7FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3E21F6E-72A4-4E64-91CA-E22FC319B7FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3E21F6E-72A4-4E64-91CA-E22FC319B7FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3E21F6E-72A4-4E64-91CA-E22FC319B7FC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

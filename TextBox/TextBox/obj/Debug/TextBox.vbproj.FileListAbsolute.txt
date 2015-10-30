@@ -1,0 +1,11 @@
+C:\Users\EARNEST\AppData\Local\Temporary Projects\TextBox\bin\Debug\TextBox.exe.config
+C:\Users\EARNEST\Desktop\VBA\TextBox\TextBox\bin\Debug\TextBox.exe.config
+C:\Users\EARNEST\Desktop\VBA\TextBox\TextBox\bin\Debug\TextBox.exe
+C:\Users\EARNEST\Desktop\VBA\TextBox\TextBox\bin\Debug\TextBox.pdb
+C:\Users\EARNEST\Desktop\VBA\TextBox\TextBox\bin\Debug\TextBox.xml
+C:\Users\EARNEST\Desktop\VBA\TextBox\TextBox\obj\Debug\TextBox.Form1.resources
+C:\Users\EARNEST\Desktop\VBA\TextBox\TextBox\obj\Debug\TextBox.Resources.resources
+C:\Users\EARNEST\Desktop\VBA\TextBox\TextBox\obj\Debug\TextBox.vbproj.GenerateResource.Cache
+C:\Users\EARNEST\Desktop\VBA\TextBox\TextBox\obj\Debug\TextBox.exe
+C:\Users\EARNEST\Desktop\VBA\TextBox\TextBox\obj\Debug\TextBox.xml
+C:\Users\EARNEST\Desktop\VBA\TextBox\TextBox\obj\Debug\TextBox.pdb

@@ -1,0 +1,4 @@
+C:\Users\EARNEST\Desktop\VBA\EventProcedure\EventProcedure\bin\Debug\EventProcedure.exe.config
+C:\Users\EARNEST\Desktop\VBA\EventProcedure\EventProcedure\obj\Debug\WindowsApplication1.Demonstration.resources
+C:\Users\EARNEST\Desktop\VBA\EventProcedure\EventProcedure\obj\Debug\WindowsApplication1.Resources.resources
+C:\Users\EARNEST\Desktop\VBA\EventProcedure\EventProcedure\obj\Debug\EventProcedure.vbproj.GenerateResource.Cache

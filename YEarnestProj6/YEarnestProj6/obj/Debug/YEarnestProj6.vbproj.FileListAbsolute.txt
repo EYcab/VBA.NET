@@ -1,0 +1,10 @@
+C:\Users\EARNEST\Desktop\VBA\YEarnestProj6\YEarnestProj6\bin\Debug\YEarnestProj6.exe.config
+C:\Users\EARNEST\Desktop\VBA\YEarnestProj6\YEarnestProj6\obj\Debug\WindowsApplication1.Resources.resources
+C:\Users\EARNEST\Desktop\VBA\YEarnestProj6\YEarnestProj6\obj\Debug\WindowsApplication1.S86YEarnestProj6.resources
+C:\Users\EARNEST\Desktop\VBA\YEarnestProj6\YEarnestProj6\obj\Debug\YEarnestProj6.vbproj.GenerateResource.Cache
+C:\Users\EARNEST\Desktop\VBA\YEarnestProj6\YEarnestProj6\bin\Debug\YEarnestProj6.exe
+C:\Users\EARNEST\Desktop\VBA\YEarnestProj6\YEarnestProj6\bin\Debug\YEarnestProj6.pdb
+C:\Users\EARNEST\Desktop\VBA\YEarnestProj6\YEarnestProj6\bin\Debug\YEarnestProj6.xml
+C:\Users\EARNEST\Desktop\VBA\YEarnestProj6\YEarnestProj6\obj\Debug\YEarnestProj6.exe
+C:\Users\EARNEST\Desktop\VBA\YEarnestProj6\YEarnestProj6\obj\Debug\YEarnestProj6.xml
+C:\Users\EARNEST\Desktop\VBA\YEarnestProj6\YEarnestProj6\obj\Debug\YEarnestProj6.pdb
